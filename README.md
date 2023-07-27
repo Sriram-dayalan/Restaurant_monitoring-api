@@ -31,20 +31,18 @@ The system provides two APIs:
 
 ## Data Sources 
 
-The system has the following three sources of data:
+We will have 3 sources of data 
 
-1.  A CSV file with three columns (store_id, timestamp_utc, status)
-    where status is active or inactive. All timestamps are in UTC.
-
-2.  A CSV file with data on the business hours of all the stores. The
-    schema of this data is store_id, dayOfWeek(0=Monday, 6=Sunday),
-    start_time_local, end_time_local. These times are in the local time
-    zone. If data is missing for a store, assume it is open 24\*7.
-
-3.  A CSV file with data on the timezone for each store. The schema is
-    store_id, timezone_str. If data is missing for a store, assume it is
-    America/Chicago. This is used so that data sources 1 and 2 can be
-    compared against each other.
+1. We poll every store roughly every hour and have data about whether the store was active or not in a CSV.  The CSV has 3 columns (`store_id, timestamp_utc, status`) where status is active or inactive.  All timestamps are in **UTC**
+    1. Data can be found in CSV format [here](https://drive.google.com/file/d/1UIx1hVJ7qt_6oQoGZgb8B3P2vd1FD025/view?usp=sharing)
+2. We have the business hours of all the stores - schema of this data is `store_id, dayOfWeek(0=Monday, 6=Sunday), start_time_local, end_time_local`
+    1. These times are in the **local time zone**
+    2. If data is missing for a store, assume it is open 24*7
+    3. Data can be found in CSV format [here](https://drive.google.com/file/d/1va1X3ydSh-0Rt1hsy2QSnHRA4w57PcXg/view?usp=sharing)
+3. Timezone for the stores - schema is `store_id, timezone_str`
+    1. If data is missing for a store, assume it is America/Chicago
+    2. This is used so that data sources 1 and 2 can be compared against each other. 
+    3. Data can be found in CSV format [here](https://drive.google.com/file/d/101P9quxHoMZMZCVWQ5o-shonk2lgK1-o/view?usp=sharing)
     
 **_NOTE:_**  Data files cannot be pushed due to lfs issue 
      
