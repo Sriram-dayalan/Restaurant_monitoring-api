@@ -53,11 +53,11 @@ The system has the following three sources of data:
          ```
             data/
             
-              ├── business_hours.csv
+              ├── Menu hours.csv
               
-              ├── stores.csv
+              ├── store status.csv
               
-              └── timezones.csv
+              └── bq-results-20230125-202210-1674678181880.csv
             ```
 
 ## System Requirements 
